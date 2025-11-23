@@ -1,17 +1,18 @@
 # digit_prediction
-A simple CNN trained on MNIST with a Tkinter GUI for drawing and predicting digits.
+A simple CNN built with <a href="https://pytorch.org/">PyTorch</a> and trained on MNIST.
 
 ## Features
 - CPU-only for simplicity
 - GUI canvas for drawing digits
 - Real-time preprocessing for MNIST-like input
-- Shows prediction and confidence
+- Graph for loss & accuracy during training process
 
 ## Dependencies
 - Python 3.10+
-- torch
-- torchvision
+- Torch
+- Torchvision
 - Pillow
+- Matplotlib
 - Tkinter (built-in)
 
 ## Setup
