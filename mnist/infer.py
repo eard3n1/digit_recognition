@@ -17,8 +17,7 @@ def preprocess_image(img):
     img = img.convert("L")
     img = ImageOps.invert(img)
     bbox = img.getbbox()
-    if bbox:
-        img = img.crop(bbox)
+    if bbox: img = img.crop(bbox)
     img = img.resize((20, 20), Image.Resampling.LANCZOS)
     new_img = Image.new("L", (28, 28), 0)
     new_img.paste(img, ((28-20)//2, (28-20)//2))
@@ -38,4 +37,4 @@ if __name__ == "__main__":
     model = load_model()
     img = Image.open("digit.png")
     digit, confidence = predict(model, img)
-    print(f"Predicted: {digit} ({confidence:.2f}%)")
+    print(f"Assumption: {digit} | Confidence: {confidence:.2f}%")

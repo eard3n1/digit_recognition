@@ -50,7 +50,7 @@ class GuiApp:
 
     def on_predict(self):
         assumption, confidence = predict(model, self.image)
-        self.label.config(text=f"Assumption: {assumption} | Confidence: ({confidence:.2f}%)")
+        self.label.config(text=f"Assumption: {assumption} | Confidence: {confidence:.2f}%")
 
 if __name__ == "__main__":
     root = tk.Tk()
