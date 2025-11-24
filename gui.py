@@ -49,8 +49,8 @@ class GuiApp:
         self.label.config(text="Draw a digit")
 
     def on_predict(self):
-        digit, confidence = predict(model, self.image)
-        self.label.config(text=f"Predicted: {digit} ({confidence:.2f}%)")
+        assumption, confidence = predict(model, self.image)
+        self.label.config(text=f"Assumption: {assumption} | Confidence: ({confidence:.2f}%)")
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -1,4 +1,4 @@
-# digit_prediction
+# digit_recognition
 A simple CNN built with <a href="https://pytorch.org/">PyTorch</a> and trained on MNIST.
 
 ## Features
