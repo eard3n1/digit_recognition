@@ -9,7 +9,7 @@ import os
 
 def main():
     batch_size = 64
-    epochs = 3
+    epochs = 5
     lr = 0.001
     path = "models/mnist_cnn.pth"
 
