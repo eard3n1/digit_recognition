@@ -15,7 +15,7 @@ class MNIST(nn.Module): # CNN architecture
             nn.ReLU(),
             nn.MaxPool2d(2), # 14 --> 7
 
-            nn.Conv2d(32, 64, kernel_size=5, padding=2),
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.MaxPool2d(2), # 7 --> 3
