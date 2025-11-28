@@ -13,15 +13,29 @@ def load_model(path="./models/mnist_cnn.pth"):
     model.eval()
     return model
 
-def preprocess_image(img):
+def preprocess_image(img, target_size=28, digit_size=20):
+    if isinstance(img, str):
+        img = Image.open(img)
+
     img = img.convert("L")
     img = ImageOps.invert(img)
     bbox = img.getbbox()
-    if bbox: img = img.crop(bbox)
-    img = img.resize((20, 20), Image.Resampling.LANCZOS)
-    new_img = Image.new("L", (28, 28), 0)
-    new_img.paste(img, ((28-20)//2, (28-20)//2))
-    new_img = new_img.filter(ImageFilter.GaussianBlur(1))
+
+    if bbox:
+        img = img.crop(bbox)
+        width, height = img.size
+        scale = min(digit_size / width, digit_size / height)
+        new_width = max(1, int(width * scale))
+        new_height = max(1, int(height * scale))
+        img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+
+    else: img = img.resize((digit_size, digit_size), Image.Resampling.LANCZOS)
+
+    new_img = Image.new("L", (target_size, target_size), 0)
+    offset_x = (target_size - img.width) // 2
+    offset_y = (target_size - img.height) // 2
+    new_img.paste(img, (offset_x, offset_y))
+
     transform = transforms.ToTensor()
     return transform(new_img).unsqueeze(0).to(device)
 
@@ -35,6 +49,6 @@ def predict(model, img):
 
 if __name__ == "__main__":
     model = load_model()
-    img = Image.open("digit.png")
+    img = Image.open("./digit.png")
     digit, confidence = predict(model, img)
     print(f"Assumption: {digit} | Confidence: {confidence:.2f}%")
