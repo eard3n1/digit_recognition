@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageDraw
-from mnist.infer import load_model, predict
+from architecture.infer import load_model, predict
 
 model = load_model()
 
