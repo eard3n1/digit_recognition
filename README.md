@@ -1,5 +1,5 @@
 # digit_recognition
-A simple CNN built with <a href="https://pytorch.org/">PyTorch</a> and trained on MNIST.
+A simple <b>CNN</b> built with <a href="https://pytorch.org/">PyTorch</a> trained on <b>MNIST</b>.
 
 ## Features
 - CPU-only for simplicity
@@ -8,7 +8,7 @@ A simple CNN built with <a href="https://pytorch.org/">PyTorch</a> and trained o
 - Graph for loss & accuracy during training process
 
 ## Dependencies
-- Python 3.10+
+- Python 3.9+ (3.10)
 - Torch
 - Torchvision
 - Pillow
@@ -32,7 +32,7 @@ python gui.py
 ```
 - Put an image named <code>digit.png</code> inside root directory & run:
 ```bash
-python mnist/infer.py
+python architecture/infer.py
 ```
 
 ## License
