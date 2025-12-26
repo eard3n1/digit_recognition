@@ -1,5 +1,5 @@
 # digit_recognition
-A simple <b>CNN</b> built with <a href="https://pytorch.org/">PyTorch</a> trained on <b>MNIST</b>.
+A simple <b>CNN</b> built with <a href="https://pytorch.org/">PyTorch</a> & trained on <b>MNIST</b> to recognize handwritten digits (0-9).
 
 ## Features
 - CPU-only for simplicity
